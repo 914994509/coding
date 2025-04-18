@@ -20,3 +20,5 @@ require(["goodsCart"], function(goodsCart){
     goodsCart.checkFunc();
     goodsCart.changeCars();
 });
+
+

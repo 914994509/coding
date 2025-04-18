@@ -1,0 +1,55 @@
+.quicklogin{
+  padding: 0,10px;
+}
+.quicklogin .login-img{
+ width: 260px;
+ height: 70px;
+}
+
+.quicklogin .login-img img{
+  width: 260px;
+  height: 70px;
+  border-radius: 6px;
+ }
+ .quicklogin .logincontainer{
+  border-top: 5px solid #f9f9fa;
+  margin-bottom: 25px;
+
+}
+ .quicklogin .loginbutton{
+  display: block;
+  border: 10px solid #f9f9fa;
+  text-align: center;
+  background-color: #f9f9fa;
+ 
+}
+ .quicklogin .loginbutton .login{
+  color: #fff;
+  border:1px;
+  border-color:#f9f9fa ;
+  font-size: 16px;
+  width: 94px;
+  height: 26px;
+  background-color: #fc5832;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.rbody .saoma{
+  width: 260px;
+  height: 90px;
+  margin-bottom: 20px;
+}
+.new-youshengshu{
+  height: 488px;
+  /* margin-bottom: 20px; */
+  background: #fff;
+  padding: 20px 0 0;
+}
+
+.new-youshengshu .youshengshutitle{
+  font-family: PingFangSC-Medium;
+  font-size: 20px;
+  line-height: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}

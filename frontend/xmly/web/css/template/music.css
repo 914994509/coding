@@ -1,0 +1,487 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+/* 播放器容器 */
+.player-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(22, 24, 35, 0.8);
+  backdrop-filter: blur(5px);
+  border-top: 1px solid #2d2f37;
+  z-index: 200;
+}
+
+.player {
+  width: 1080px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* 专辑封面 */
+.player-container .album-cover {
+  width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-right: 15px;
+  background: #2d2f37;
+  border: 1px solid #555555;
+  
+}
+
+.player-container .album-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 左侧控制区 */
+.brand-red {
+  width: 24px;
+  height: 24px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin-right: 15px;
+}
+
+.play-control {
+  display: flex;
+  align-items: center;
+  width: 112px;
+  height: 30px;
+  position: relative;
+}
+
+.play-btn {
+  width: 12px;
+  height: 12px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.2s;
+  position: absolute;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.play-pause-btn {
+  left: 41px;
+}
+
+.next-btn {
+  left: 82px;
+}
+
+.play-btn:hover {
+  background: transparent;
+}
+
+.play-btn img {
+  width: 12px;
+  height: 12px;
+}
+
+/* 新增悬停效果样式 */
+/* 通用悬停效果 */
+.control-btn .hover-icon,
+.play-btn .hover-icon {
+  display: none;
+}
+
+.control-btn:hover .default-icon,
+.play-btn:hover .default-icon:not(.pause-state) {
+  display: none;
+}
+
+.control-btn:hover .hover-icon,
+.play-btn:hover .hover-icon:not(.pause-state) {
+  display: inline-block;
+}
+/* 优化后的播放按钮样式 */
+/* 默认显示播放图标 */
+.play-pause-btn .play-state.default-icon {
+  display: inline-block;
+}
+.play-pause-btn .play-state.hover-icon,
+.play-pause-btn .pause-state {
+  display: none;
+}
+
+/* 悬停状态 */
+.play-pause-btn:hover .play-state.default-icon {
+  display: none;
+}
+.play-pause-btn:hover .play-state.hover-icon {
+  display: inline-block;
+}
+
+/* 播放状态（显示暂停图标） */
+.play-pause-btn.is-playing .play-state {
+  display: none !important;
+}
+.play-pause-btn.is-playing .pause-state.default-icon {
+  display: inline-block;
+}
+
+/* 播放状态下的悬停 */
+.play-pause-btn.is-playing:hover .pause-state.default-icon {
+  display: none;
+}
+.play-pause-btn.is-playing:hover .pause-state.hover-icon {
+  display: inline-block;
+}
+/* 喜欢按钮特殊处理 */
+#like-btn.is-liked .default-icon {
+  display: none;
+}
+
+#like-btn.is-liked .hover-icon {
+  display: inline-block !important;
+}
+
+/* 保持原有样式 */
+.play-pause-btn img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 核心信息区 */
+.track-info {
+  flex: 1;
+  margin-left: 20px;
+  min-width: 240px;
+  color: white;
+}
+
+.track-title {
+  font-size: 14px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 380px;
+}
+
+.duration {
+  font-size: 12px;
+  color: #a8a8a8;
+  letter-spacing: 0.5px;
+}
+
+/* 进度条 */
+.progress-wrapper {
+  margin-top: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  height: 3px;
+  background: #40444d;
+  border-radius: 2px;
+  cursor: pointer;
+  flex: 1;
+  position: relative;
+}
+
+.progress-current {
+  width: 1%;
+  height: 100%;
+  background: red;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* 时间信息 */
+.time-info {
+  margin-left: 15px;
+  font-size: 12px;
+  color: #a8a8a8;
+  white-space: nowrap;
+}
+
+/* 右侧控制区 */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.control-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 18px;
+}
+
+.control-btn img {
+  width: 18px;
+  height: 18px;
+  transition: all 0.2s;
+}
+
+.control-btn:hover img {
+  filter: brightness(1.2);
+}
+
+.right-controls{
+  position: relative; /* 添加定位上下文 */
+}
+.speed-menu {
+  position: absolute;
+  bottom: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%); /* 水平居中 */
+  width: 80px; /* 推荐更合理的宽度 */
+  background: #2d2f37;
+  border-radius: 4px;
+  padding: 6px 0;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.speed-option {
+  color: #e1e1e1;
+  text-align: center;
+  font-size: 13px;
+  padding: 6px 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.speed-option:hover {
+  color: red;
+}
+
+.speed-option.selected {
+  color: red;
+  font-weight: bold;
+}
+
+#speed-btn {
+  font-size: 14px;
+  width: auto;
+  padding: 0 10px;
+  margin-left: 18px;
+  min-width: 40px;
+}
+
+.speed-text {
+  color: white;
+  transition: all 0.2s;
+}
+
+#speed-btn:hover .speed-text {
+  color: red;
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+}
+/* 优化后的CSS */
+#shuffle-btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.mode-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mode-icon.active {
+  opacity: 1;
+}
+
+/* 悬停效果 */
+#shuffle-btn:hover .mode-icon.active {
+  color: #000;
+}
+
+/* 不同模式的活动状态 */
+[data-mode="loop"].active { filter: brightness(1); }
+[data-mode="single"].active { filter: brightness(1); }
+[data-mode="shuffle"].active { filter: brightness(1); }
+
+/* 音量控制 */
+.volume-control {
+  position: relative;
+}
+.volume-menu {
+  position: absolute;
+  bottom:calc(100% + 15px);
+  left:20%; 
+  transform: translateX(-50%);
+  background: #2d2f37;
+  border-radius: 4px;
+  padding: 10px 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 40px; /* 移除固定宽度 */
+  height: 100px; /* 控制总高度 */
+}
+
+.volume-slider {
+  width: 4px; /* 滑动条宽度 */
+  height: 100%; /* 充满容器高度 */
+  background: #40444d;
+  border-radius: 2px;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+}
+
+.volume-current {
+  width: 100%;
+  height: 70%; /* 初始高度 */
+  background: #ffffff;
+  border-radius: 2px;
+  position: absolute;
+  bottom: 0; /* 从底部开始 */
+  left: 0;
+  transition: height 0.1s; /* 添加过渡动画 */
+}
+/* 当前播放时间 */
+.current-time {
+  font-size: 11px;
+}
+
+.prev-icon,
+.next-icon {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+/* 更新的上一首和下啊一首 */
+.playlist-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.prev-transition {
+  transform: translateX(20px);
+  opacity: 0;
+}
+
+.next-transition {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+
+.playlist-item.active {
+  transform: translateX(0);
+  opacity: 1;
+  background: rgba(255,255,255,0.1);
+}
+
+
+#playlist-btn{
+  position: relative;
+}
+/* list 样式 */
+/* 新增外层容器 */
+#playlist-control1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* 调整播放列表容器定位 */
+.playlist-container {
+  position: absolute;
+  /* 居中定位 */
+  left: 50%;                   /* 水平起点设为50% */
+  transform: translateX(-50%);  /* 向左平移自身宽度的一半 */
+  bottom:100%;    /* 保持在按钮上方 */
+
+  /* 尺寸设置 */
+  width: 1080px;              /* 固定宽度 */
+  /* max-height: 60vh;           最大高度 */
+  /* height: 152px;           */
+
+  /* 样式 */
+  background: rgba(40, 40, 40, 0.98);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  opacity: 0;                 /* 默认透明 */
+  transition: 
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  backdrop-filter: blur(12px);
+
+  /* 添加可见状态 */
+  &.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0); /* 保持居中 */
+  }
+}
+
+/* 调整头部样式 */
+.playlist-header {
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  background: rgba(40,40,40,0.95);
+  z-index: 1;
+}
+.close-btn{
+  /* 右上角 */
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  cursor: pointer;
+}
+
+/* 调整列表项间距 */
+.playlist-items{
+color: rgba(255, 255, 255);
+padding: 8px 2px;
+}
+.playlist-item{
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  color: #e1e1e1;
+  font-size: 14px;
+  cursor: pointer;
+} 
+.playlist-items .playlist-item:hover{
+  background-color: rgba(231, 19, 19, 0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
