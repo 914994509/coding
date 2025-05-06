@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #00a1d6;
+  --primary-hover: #00b5e5;
+  --text-color: #18191c;
+  --light-text: #61666d;
+  --border-color: #e3e5e7;
+  --bg-color: #fff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* B站风格按钮 */
+.bili-btn-primary {
+  @apply bg-[#00a1d6] hover:bg-[#00b5e5] text-white text-sm font-medium rounded-md transition-colors duration-200;
+}
+
+/* B站风格卡片 */
+.bili-card {
+  @apply bg-white rounded-lg overflow-hidden shadow-sm transition-all duration-200 hover:shadow-md;
+}
+
+/* B站风格标签 */
+.bili-tag {
+  @apply px-2 py-0.5 text-xs rounded-sm bg-opacity-10 text-[#00a1d6] bg-[#00a1d6];
+}
+
+.search-wrp.bigMode.hasPagi {
+  width: 1280px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}

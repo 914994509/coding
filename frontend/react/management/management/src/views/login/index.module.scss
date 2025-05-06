@@ -1,0 +1,26 @@
+@use '@/styles/_variables' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, $primary-color 0%, #1890ff 100%);
+}
+
+.content {
+  width: 100%;
+  max-width: 400px;
+  padding: $spacing-xl;
+  background: white;
+  border-radius: $border-radius-lg;
+  box-shadow: $box-shadow;
+}
+
+.title {
+  margin-bottom: $spacing-xl;
+  text-align: center;
+  color: $heading-color;
+  font-size: 28px;
+  font-weight: bold;
+}

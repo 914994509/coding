@@ -1,0 +1,35 @@
+@use '@/styles/_variables' as *;
+
+.container {
+  padding: $spacing-md;
+}
+
+.header {
+  margin-bottom: $spacing-md;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu {
+  color: $primary-color;
+}
+
+.button {
+  color: $success-color;
+}
+
+:global {
+  .ant-table {
+    background: white;
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow;
+  }
+
+  .ant-table-thead>tr>th {
+    background: #fafafa;
+  }
+
+  .ant-table-tbody>tr:hover>td {
+    background: #f5f5f5;
+  }
+}

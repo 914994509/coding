@@ -1,0 +1,26 @@
+@use '@/styles/_variables' as *;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #f0f2f5;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 120px;
+  color: $primary-color;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: $font-size-lg;
+  color: $text-color;
+  margin: $spacing-lg 0;
+}

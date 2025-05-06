@@ -1,0 +1,116 @@
+/* Pagination styles are now handled by Tailwind classes in Pagination.tsx */
+
+/* src/styles/Pagination.css */
+
+/* 分页控件样式 */
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  background-color: #fff;
+  border-top: 1px solid #e3e5e7;
+  width: 100%;
+}
+
+.pagination-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.page-button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #e3e5e7;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #18191c;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-button:hover:not(.active):not(:disabled) {
+  border-color: #00a1d6;
+  color: #00a1d6;
+}
+
+.page-button.active {
+  background-color: #00a1d6;
+  border-color: #00a1d6;
+  color: #fff;
+  cursor: default;
+}
+
+.page-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.page-ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  color: #9499a0;
+  user-select: none;
+}
+
+/* 跳页控件 */
+.pagination-jump {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.pagination-jump-text {
+  color: #9499a0;
+  font-size: 14px;
+  margin: 0 4px;
+}
+
+.pagination-jump-text.total {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+.pagination-jump-input {
+  width: 40px;
+  height: 32px;
+  padding: 0 8px;
+  border: 1px solid #e3e5e7;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.pagination-jump-input:focus {
+  border-color: #00a1d6;
+  outline: none;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+  .pagination-container {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .pagination-jump {
+    margin-left: 0;
+    align-self: flex-start;
+  }
+
+  .pagination-nav {
+    align-self: flex-start;
+  }
+}

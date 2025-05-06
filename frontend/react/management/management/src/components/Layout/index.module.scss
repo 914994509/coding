@@ -1,0 +1,29 @@
+@use '@/styles/_variables' as *;
+
+.layout {
+  min-height: 100vh;
+}
+
+.logo {
+  height: $header-height;
+  line-height: $header-height;
+  text-align: center;
+  color: white;
+  font-size: $font-size-lg;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.trigger {
+  padding: 0 24px;
+  font-size: 18px;
+  line-height: $header-height;
+  cursor: pointer;
+  transition: color 0.3s;
+
+  &:hover {
+    color: $primary-color;
+  }
+}

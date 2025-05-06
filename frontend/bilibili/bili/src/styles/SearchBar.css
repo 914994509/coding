@@ -1,0 +1,244 @@
+/* 搜索组件样式 */
+.search-wrp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  margin: 30px auto 25px auto;
+}
+
+.search-container {
+  width: 100%;
+}
+
+.search__bar {
+  /* 固定宽度 */
+  width: 422px;
+  /* 固定高度 */
+  height: 42px;
+  /* 使搜索栏本身居中 */
+  margin-left: auto;
+  margin-right: auto;
+  /* 添加 Flexbox 用于垂直居中内部表单 */
+  display: flex;
+  align-items: center;
+  /* 保留原有样式 */
+  background-color: #f6f7f8;
+  border: 1px solid #e3e5e7;
+  border-radius: 8px;
+  transition: all 0.2s;
+  position: relative;
+  /* 确保绝对定位的子元素相对此容器 */
+}
+
+.search__bar:hover {
+  border-color: #00a1d6;
+  background-color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search__bar.isfocus {
+  /* border-color: #00a1d6; */
+  background-color: #fff;
+}
+
+#nav-searchform {
+  display: flex;
+  position: relative;
+  /* 高度保持 40px，由父级 flex 居中 */
+  height: 40px;
+  /* 宽度占满父容器 */
+  width: 100%;
+}
+
+.search-content {
+  /* 居中 */
+  margin: auto 0;
+  display: flex;
+  align-items: center;
+  width: 374px;
+  height: 30px;
+  position: relative;
+  left: 5px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  padding: 0 6px 0 8px;
+}
+
+.search-content.isfocus {
+  background-color: #e3e5e7;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  height: 20px;
+  width: 330px;
+  font-size: 14px;
+  color: #18191c;
+  background-color: transparent;
+  padding-right: 76px;
+  border-radius: 4px;
+  margin: auto 0;
+  /* 添加圆角 */
+}
+
+/* .search-input:focus {
+  background-color: #e65b0b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+} */
+
+/* 清除按钮 */
+.nav-search-clean {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  right: 0;
+  color: #9499a0;
+  background: url("../assets/close.png");
+  background-size: 13.5px 13.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background 0.2s ease;
+}
+
+/* 清除按钮 hover 效果 */
+.nav-search-clean:hover {
+  background: url("../assets/close1.png");
+  background-size: 13.5px 13.5px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* 搜索按钮 */
+.search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 7px;
+  border-radius: 6px;
+  background-color: transparent;
+  color: #18191c;
+}
+.search-btn:hover {
+  background-color: #e3e5e7;
+}
+
+/* 搜索历史区域 */
+.search-history {
+  position: absolute;
+  top: calc(100% + 6px);
+  /* 保持与搜索栏的间距 */
+  left: 0;
+  /* 显式设置宽度以匹配搜索栏 */
+  width: 422px;
+  /* width: 100%; */
+  /* 移除相对宽度 */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  /* margin-top: 6px;  */
+  /* margin 移动到 top 计算中 */
+  z-index: 100;
+  overflow: hidden;
+  border: 1px solid #e3e5e7;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  /* border-bottom: 1px solid #f6f7f8; */
+}
+
+.history-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #18191c;
+}
+
+.clear-history {
+  font-size: 12px;
+  color: #9499a0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.clear-history:hover {
+  color: #00a1d6;
+}
+
+.history-list {
+  padding: 8px 16px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.history-item {
+  padding: 6px 12px;
+  background-color: #f6f7f8;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #61666d;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative;
+}
+
+.history-item:hover {
+  /* background-color: #e3e5e7; */
+  color: #00aeec;
+}
+
+/* 历史记录项的关闭按钮 */
+.history-item-close {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 14px;
+  height: 14px;
+  line-height: 14px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  font-size: 16px;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.history-item:hover .history-item-close {
+  opacity: 1;
+}
+
+/* .history-item-close:hover {
+  background-color: #d1d4d8;
+  color: #61666d;
+} */

@@ -1,0 +1,480 @@
+/* 课程容器 */
+.courses-container {
+  width: 1248px;
+  /* 5个卡片(5*236px) + 4个右边距(4*13.25px) = 1248px */
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* 主体容器样式 */
+html,
+body {
+  overflow-x: auto;
+  min-width: 1248px;
+  /* 修改最小宽度以保持两列布局 */
+}
+
+.courses-container.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.courses-container.list {
+  display: grid;
+  grid-template-columns: repeat(2, 611px);
+  gap: 20px;
+  justify-content: center;
+  width: 1248px;
+  margin: 0 auto;
+}
+
+/* 网格卡片样式 */
+.course-card {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 236px;
+  height: auto;
+  margin-right: 13.25px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.course-card:nth-child(5n) {
+  margin-right: 0;
+  /* 第5个元素不需要右边距 */
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.thumbnail-wrapper {
+  width: 236px;
+  height: 133px;
+  overflow: hidden;
+  position: relative;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 图片上的统计信息 */
+.course-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 12px;
+}
+
+.course-img {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+
+.student-count,
+.chapter-count {
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.student-count {
+  margin-right: auto;
+}
+
+.card-content {
+  width: 236px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  padding: 0 10px 10px;
+}
+
+.course-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #18191c;
+  /* 修改为单行显示 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.course-title:hover {
+  color: #00a1d6;
+}
+
+.course-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.course-brief {
+  font-size: 12px;
+  color: #61666d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.price {
+  font-size: 14px;
+  line-height: 20px;
+  color: #00aaaa;
+  font-weight: 400;
+  margin-right: 8px;
+}
+
+.original-price {
+  font-size: 13px;
+  color: #9499a0;
+  text-decoration: line-through;
+}
+
+.course-tag-container {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+}
+
+.course-tag {
+  display: inline-block;
+  padding: 2px 6px;
+  background-color: #00a1d6;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+/* 列表卡片样式 */
+.course-list-card {
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+  position: relative;
+  width: 611px;
+  height: 116px;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.course-list-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.list-content-wrapper {
+  display: grid;
+  grid-template-columns: 206px 1fr;
+  gap: 10px;
+  /* padding: 16px; */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.list-thumbnail-wrapper {
+  position: relative;
+  width: 206px;
+  height: 116px;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.list-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 列表视图中的统计信息 */
+.list-stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 12px;
+}
+
+.list-student-count,
+.list-chapter-count {
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.list-student-count {
+  margin-right: auto;
+}
+
+.list-content {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  width: 100%;
+  overflow: hidden;
+  justify-content: flex-start;
+  height: 116px;
+  box-sizing: border-box;
+}
+
+.list-title {
+  font-size: 14px;
+  font-weight: normal;
+  color: #18191c;
+  margin-bottom: 5px;
+  line-height: 20px;
+  /* 修改为单行显示 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.keyword {
+  font-style: normal;
+  color: #02aaaa;
+}
+
+.list-brief {
+  font-size: 12px;
+  color: #61666d;
+  margin: 0 0 10px 0;
+  /* 保持原有边距 */
+  /* 单行显示 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  line-height: 1.2;
+  height: auto;
+  /* 改为自动高度 */
+  padding: 0;
+  /* 确保没有内边距 */
+}
+
+.list-price-container {
+  display: flex;
+  font-size: 14px;
+
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.list-price {
+  color: #00aaaa;
+  margin-right: 8px;
+}
+
+.list-original-price {
+  font-size: 14px;
+  color: #9499a0;
+  text-decoration: line-through;
+}
+
+.list-tag-container {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+}
+
+.list-highlight-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  background-color: #00a1d6;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+}
+
+.list-ep-play-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background: url("https://s1.hdslb.com/bfs/static/jinkela/edu-pc/pages/assets/play.svg")
+    no-repeat center center;
+  background-size: contain;
+  vertical-align: middle;
+}
+
+.list-ep-info {
+  display: flex;
+  height: auto;
+  /* 改为自动高度 */
+  min-height: 24px;
+  /* 设置最小高度 */
+  align-items: center;
+  margin-top: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%;
+  background-color: #f6f7f8;
+  padding: 3px 6px;
+  /* 添加内边距 */
+}
+
+.list-ep-label {
+  display: inline-block;
+  padding: 2px 6px;
+  color: #02aaaa;
+  border-radius: 4px;
+  font-size: 12px;
+  margin-right: 8px;
+}
+
+.list-ep-title {
+  color: #61666d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+/* 加载状态 */
+.courses-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 100%;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(0, 161, 214, 0.1);
+  border-radius: 50%;
+  border-left-color: #00a1d6;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* 空状态 */
+.courses-empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 300px;
+  width: 100%;
+  color: #61666d;
+  margin: 0;
+  text-align: left;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-subtext {
+  margin-top: 8px;
+  color: #9499a0;
+  font-size: 14px;
+}
+
+/* 响应式布局 - 只保留必要的样式，移除会导致单列的部分 */
+@media (max-width: 1300px) {
+  .courses-container {
+    width: 1248px;
+    margin: 0 auto;
+  }
+
+  .courses-container.grid {
+    justify-content: flex-start;
+  }
+
+  .courses-container.list {
+    grid-template-columns: repeat(2, 611px);
+    justify-content: center;
+    gap: 10px;
+    width: 1248px;
+  }
+
+  /* 在响应式布局中保持右边距 */
+  .course-card {
+    margin-right: 13.25px;
+    margin-bottom: 20px;
+  }
+
+  /* 保持第5个元素的右边距处理 */
+  .course-card:nth-child(5n) {
+    margin-right: 0;
+  }
+
+  .course-list-card {
+    width: 611px;
+    height: 116px;
+    margin: 0 10px 0 0;
+  }
+}
+
+/* 在移动设备上保持固定尺寸 */
+@media (max-width: 768px) {
+  .courses-container.grid {
+    justify-content: flex-start;
+    width: 1248px;
+  }
+
+  .course-card {
+    margin-bottom: 15px;
+    width: 236px;
+  }
+
+  .course-list-card {
+    width: 611px;
+    height: 116px;
+  }
+}

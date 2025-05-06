@@ -1,0 +1,240 @@
+/* 课程列表样式 */
+.result-wrp {
+  padding: 16px 0;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px 16px;
+}
+
+.num-desc {
+  font-size: 14px;
+  color: #9499a0;
+}
+
+.mode-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mode-trigger span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 4px;
+  color: #9499a0;
+}
+
+.mode-trigger span.active {
+  color: #00a1d6;
+}
+
+.season-list {
+  width: 100%;
+}
+
+.big-mode {
+  display: grid;
+  /* 固定为 5 列，每列 236px */
+  grid-template-columns: repeat(5, 236px);
+  /* 计算出的精确间距 */
+  gap: 17px;
+  padding: 0 16px;
+  /* 保持左右内边距 */
+  /* 居中网格项 */
+  justify-content: center;
+}
+
+.big-card-wrp {
+  /* 固定宽度 */
+  width: 236px;
+  /* 固定高度 */
+  height: 216px;
+  overflow: hidden;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 0 1px #e3e5e7;
+  cursor: pointer;
+  /* 使用 flex 布局方便管理内部元素，如果需要的话 */
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.big-card-wrp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.big-card-wrp .cover-img {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.big-card-wrp .cover-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.big-card-wrp:hover .cover-img img {
+  transform: scale(1.05);
+}
+
+.block-list-item-info-mask {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: 1;
+}
+
+.block-list-item-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 6px 8px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+.block-list-item-info-player {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+
+.block-list-item-info-player img {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.block-list-item-info p {
+  font-size: 12px;
+  margin: 0;
+}
+
+.big-card-wrp .title {
+  font-size: 15px;
+  font-weight: 500;
+  color: #18191c;
+  margin: 10px 10px 4px;
+  line-height: 21px;
+  height: 42px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.big-card-wrp .subtitle {
+  font-size: 12px;
+  color: #9499a0;
+  margin: 0 10px 6px;
+  height: 18px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.block-list-item-price {
+  display: flex;
+  align-items: baseline;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fb7299;
+  margin: 0 10px 8px;
+}
+
+.price-pre {
+  font-size: 12px;
+  color: #fb7299;
+  margin-right: 2px;
+}
+
+.block-list-item-price.line {
+  margin: 0 6px;
+  color: #e3e5e7;
+}
+
+.block-list-item-price.origin {
+  font-size: 12px;
+  color: #9499a0;
+  text-decoration: line-through;
+  font-weight: normal;
+}
+
+.first-ep {
+  /* 暂时隐藏，以适应固定的 216px 高度 */
+  /* display: none; */
+  /* 或者保留，但需要检查是否会导致溢出 */
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #61666d;
+  padding: 8px 10px;
+  border-top: 1px solid #f1f2f3;
+  background-color: #fcfcfc;
+}
+
+.play-btn {
+  width: 12px;
+  height: 12px;
+  margin-right: 6px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300a1d6'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.first-ep-label {
+  padding: 0 4px;
+  background-color: #00a1d6;
+  color: #fff;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+
+.first-ep-title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #61666d;
+}
+
+.more-recommend-title {
+  font-size: 16px;
+  font-weight: 500;
+  padding: 20px 16px 16px;
+  color: #18191c;
+  margin-top: 20px;
+  border-top: 1px solid #f1f2f3;
+}
+
+/* 关键字高亮样式 */
+.keyword {
+  color: #fb7299;
+  font-style: normal;
+}
